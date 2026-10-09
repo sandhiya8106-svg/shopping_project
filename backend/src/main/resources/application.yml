@@ -1,0 +1,26 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: shopkart-backend
+
+  datasource:
+    url: ${DB_URL:jdbc:mysql://localhost:3306/shopkart?createDatabaseIfNotExist=true&useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC}
+    username: ${DB_USERNAME:root}
+    password: ${DB_PASSWORD:MyNewPassword@123}
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: false
+    properties:
+      hibernate:
+        format_sql: false
+        dialect: org.hibernate.dialect.MySQLDialect
+
+app:
+  jwt:
+    secret: ${JWT_SECRET:9a673bc6acf65e8b4e7c1d059c03e48bc709ef5a3126f9288de9729b37425c40}
+    expiration-ms: ${JWT_EXPIRATION_MS:604800000} # 7 days
